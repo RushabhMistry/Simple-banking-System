@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+      "Arial", sans-serif;
+}
+.navBar {
+    height: 50px;
+    background: #fff;
+    padding: 0px 20px;
+    color: #000;
+    display: block;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    z-index: 10;
+    box-shadow: 0 8px 6px -10px black;
+}
+.tsfLogo{
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+}
+/* .tsfLogo:hover{
+transform: scale(1.1);
+} */
+.menu {
+    position: absolute;
+    right: 0px;
+}
+.menu li {
+    display: inline-block;
+    line-height: 50px;
+}
+.menu a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none !important;
+    padding: 0px 15px;
+    transition: 0.3s;
+    font-size: 18px;
+}
+.show-menu-btn,
+.hide-menu-btn {
+    transition: 0.3s;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+.show-menu-btn {
+    float: right;
+}
+.show-menu-btn i {
+    line-height: 50px;
+}
+.menu a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover {
+    color: #009bff;
+    transition: 0.2s;
+}
+
+#chk {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    z-index: -1111;
+}
+
+@media (max-width: 750px) {
+    .show-menu-btn,
+    .hide-menu-btn {
+      display: block;
+    }
+    .tsfLogo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .menu {
+      position: absolute;
+      width: 100%;
+      background: #e3e3e3;
+      top: -240px;
+      /* top: 0; */
+      text-align: center;
+      padding: 50px 0px 30px 0px;
+      line-height: normal;
+      transition: 0.5s;
+    }
+    .menu a {
+      display: block;
+      padding: 5px;
+    }
+    .menu li {
+      display: block;
+      line-height: 30px;
+    }
+    .align{
+      font-size: 20px;
+    }
+    .top{
+      font-size: 30px;
+    }
+    .hide-menu-btn {
+      position: absolute;
+      top: 10px;
+      right: 23px;
+    }
+    #chk:checked ~ .menu {
+      top: 0  ;
+    }
+}

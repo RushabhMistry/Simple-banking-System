@@ -1,0 +1,118 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no, shrink-to-fit=no">
+		<title>Banking System</title>
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/transferMoney.css' %}">
+        <link rel="stylesheet" href="{% static 'packages/font-awesome-5.15.1/css/all.css' %}">
+        <link rel="stylesheet" href="{% static 'packages/bootstrap-4.1.3/css/bootstrap.min.css' %}">
+        <link rel="shortcut icon" href="#">
+    </head>
+    <body>
+        <div class="col-12"> 
+            <div class="row">
+                <div class="navBar">
+                    <img class = "tsfLogo" src = "{% static 'images/tsf.png' %}">
+                    <input type="checkbox" id="chk">
+                    <label for="chk" class="show-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <ul class="menu">
+                        <li><a href = "{% url 'index' %}">Home</a></li>
+                        <li><a href = "{% url 'customers' %}">Customers</a></li>
+                        <li><a href = "{% url 'transferMoney' %}">Transfer Money</a></li>
+                        <li><a href = "{% url 'transactionRecords' %}">Transaction Records</a></li>
+                        <label for="chk" class="hide-menu-btn">
+                            <i class="fas fa-times"></i>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <span class="cont">Click on customer's name to transfer money.</span>
+                <div class="tab col-10">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>EMAIL</th>
+                                <th class="right">BALANCE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results %}
+                            <tr>
+                                <td>{{result.user_id}}</td>
+                                <td class="hov td-btn">{{result.name}}</td>
+                                <td>{{result.email}}</td>
+                                <td align="right">{{result.Balance}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="txnContainer">
+                    <div class="cover" id="myModal"></div>
+                    <form method="post" action="." id="myForm">
+                        {% csrf_token %}
+                        <div class="form-container">
+                            <span class="head">Transaction</span>
+                            <hr>
+                            <div class="form">
+                                <span>Date:</span>
+                                <input type="text" id="currentDate" name="date" readonly>
+                            </div>
+                            <div class="form">
+                                <span>Amount:</span>
+                                <input type='number' step='0.01' name="amount" placeholder='100.00' id="amount">
+                            </div>
+                            <div class="form">
+                                <span>Narration:</span>
+                                <input type='text' name="narration">
+                            </div>
+                            <hr>
+                            <div class="dbt col-6 text-left">
+                                <div class="head">Debit From</div>
+                                <div class="marg">
+                                    <Span>Name</Span>
+                                    <input type="text" id="drName" name="drName" readonly>    
+                                </div>
+                                <div class="marg">
+                                    <Span>ID</Span>
+                                    <input type="number" id="drId" name="drId" readonly>
+                                </div>
+                            </div>
+                            <div class="cre col-6 text-left">
+                                <div class="head">Credit To</div>
+                                <div class="marg">
+                                    <span>Name</span>
+                                    <select id="crName" name="crName"></select>
+                                </div>
+                                <div class="marg">
+                                    <span>ID</span>
+                                    <input type="number" id="crId" name="crId" readonly>    
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="btnn col-6">
+                                <button type="submit" class="btn btn-primary btn-lg" id="submit">Submit</button>
+                            </div>
+                            <div class="btnn col-6">
+                                <button type="button" class="btn btn-primary btn-lg" id="cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{% static 'packages/jquery-3.2.1/jquery.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'packages/bootstrap-4.1.3/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/transferMoney.js' %}"></script>
+    </body>
+</html>

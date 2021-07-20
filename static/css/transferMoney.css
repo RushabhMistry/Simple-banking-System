@@ -1,0 +1,87 @@
+.cont{
+    padding-top: 50px;
+    font-size: 25px;
+}
+.tab{
+    margin: 50px 0px;
+}
+.right{
+    text-align: right;
+}
+.hov:hover{
+    color: #00b7ff;
+    transition: 0.1s;
+    background-color: #d1d1d1;
+}
+.cover{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    opacity: 0.8;
+    z-index: 10;
+}
+.form-container{
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+    z-index: 20;
+    background-color: white;
+    /* border: 1px solid black; */
+    display: inline-block;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-60%);
+    width: 40vw;
+    box-shadow: 0 0 15px 3px;
+    margin-top: 50px;
+}
+#txnContainer{
+    display: none;
+}
+.head{
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    margin: 10px;
+}
+.form{
+    display: block;
+    text-align: center;
+    margin: 10px;
+}
+hr{
+    display: block;
+    border: 1px;
+    background-color: #000;
+}
+.dbt{
+    display: inline-block;
+    border-right: 1px solid #000;
+    text-align: center;
+}
+.cre{
+    float: right;
+}
+.mid{
+    display: block;
+    align-items: center;
+}
+.btnn{
+    display: block;
+    float: right;
+    text-align: center;
+}
+#crName, #crId{
+    height: 28px;
+    width: 160px; 
+}
+#drName, #drId{
+    width: 160px; 
+}
+.marg{
+    margin-bottom: 10px;
+}
